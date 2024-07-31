@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AdminView from './Components/AdminView';
+import PatientSignIn from './Components/PatientsSignIn';
+import PatientView from './Components/PatientView';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+    <Router>
+        <div>
+            <Routes>//every route for the app
+                <Route path="/admin" element={<AdminView />} />
+                <Route path="/signin" element={<PatientSignIn />} />
+                <Route path="/view" element={<PatientView />} />
+                <Route path="/" element={<h1>Welcome to Hospital Triage</h1>} />
+            </Routes>
+        </div>
+    </Router>
+);
 
 export default App;
